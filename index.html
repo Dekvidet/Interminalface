@@ -6,10 +6,12 @@
 		<link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	</head>
 	<body>
-		
-		<script scr="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+		<div id="root"></div>
+		<!--<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>-->
+		<script src="http://localhost:8080/app.js"></script>
+		<!--<script src="build/app.js"></script>-->
 		<script>
-			var SerialPort = require('serialport');
+			/*var SerialPort = require('serialport');
 			var port = new SerialPort('/dev/ttyUSB0', {
 				baudRate: 4800,
 			});
@@ -25,7 +27,7 @@
 
 			port.on('data', function (data) {
 				console.log('Data: ' + data);
-			});
+			});*/
 		</script>
 	</body>
 </html>
