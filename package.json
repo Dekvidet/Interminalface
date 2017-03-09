@@ -2,11 +2,12 @@
   "name": "matrix-control",
   "version": "1.0.0",
   "description": "UI for remote VGA matrix control via serial port",
-  "main": "index.html",
+  "main": "test.js",
   "scripts": {
-    "start": "nw",
-    "dev": "webpack-dev-server --env development",
-    "build": "webpack --env production"
+    "instal": "electron-rebuild",
+    "dev": "webpack-dev-server",
+    "start": "electron .",
+    "build": "NODE_ENV='production' webpack"
   },
   "keywords": [
     "ui",
@@ -19,7 +20,6 @@
   "license": "GPL-3.0",
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "nw": "^0.21.0-rc1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.3",
@@ -34,6 +34,8 @@
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-2": "^6.22.0",
     "css-loader": "^0.26.1",
+    "electron": "^1.4.15",
+    "electron-rebuild": "^1.5.7",
     "style-loader": "^0.13.1",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.1"
