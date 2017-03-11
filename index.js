@@ -5,31 +5,7 @@ const url = require('url');
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win;
-/*
-var SerialPort = require('serialport');
-var port = new SerialPort('/dev/ttyUSB0', {
-    baudRate: 4800,
-    dataBits: 8,
-    stopBits: 1,
-    parity: 'none'
-});
 
-var buf = new Buffer("A3\r\n", "ascii");
-console.log(buf.toString('hex'));
-
-port.on('open', function () {
-    port.write(buf, function(err) {
-        if (err) {
-            return console.log('Error on write: ', err.message);
-        }
-        console.log('message written');
-    });
-});
-
-port.on('data', function (data) {
-    console.log('Data: ' + data);
-});
-*/
 function createWindow () {
 
 	// Create the browser window.

@@ -1,0 +1,75 @@
+{
+	"serialConfig": {
+		"path": "/dev/ttyUSB0",
+		"portConfig": {
+			"baudRate": "4800",
+			"dataBits": "8",
+			"stopBits": "1",
+			"parity": "none"
+		},
+		"bufferConfig": {
+			"mode": "ascii"
+		}
+	},
+	"buttonGroups": [
+		{
+			"id": "audience",
+			"label": "Audience",
+			"buttons": [
+				{
+					"id": "pc_alpha",
+					"label": "PC ALPHA",
+					"payload": "aud_aplha\r\n"
+				},
+				{
+					"id": "pc_beta",
+					"label": "PC BETA",
+					"payload": "aud_beta\r\n"
+				},
+				{
+					"id": "pc_gamma",
+					"label": "PC GAMMA",
+					"payload": "aud_gamma\r\n"
+				}
+			]
+		},
+		{
+			"id": "teleprompter",
+			"label": "Teleprompter",
+			"buttons": [
+				{
+					"id": "pc_alpha",
+					"label": "PC ALPHA",
+					"payload": "tel_aplha\r\n"
+				},
+				{
+					"id": "pc_beta",
+					"label": "PC BETA",
+					"payload": "tel_beta\r\n"
+				},
+				{
+					"id": "pc_gamma",
+					"label": "PC GAMMA",
+					"payload": "tel_gamma\r\n"
+				}
+			]
+		}
+	],
+	"buttons": [
+		{
+			"id": "on",
+			"label": "Turn on",
+			"payload": "on\r\n"
+		},
+		{
+			"id": "off",
+			"label": "Turn off",
+			"payload": "off\r\n"
+		},
+		{
+			"id": "status",
+			"label": "Status",
+			"payload": "status\r\n"
+		}
+	]
+}
