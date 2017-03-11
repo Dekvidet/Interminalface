@@ -4,7 +4,7 @@
   "description": "UI for remote VGA matrix control via serial port",
   "main": "test.js",
   "scripts": {
-    "instal": "electron-rebuild",
+    "install": "electron-rebuild",
     "dev": "webpack-dev-server",
     "start": "electron .",
     "build": "NODE_ENV='production' webpack"

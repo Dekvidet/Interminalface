@@ -1,5 +1,6 @@
-import SerialPort from 'serialport';
+//import SerialPort from 'serialport';
 //var SerialPort = require('serialport');
+import { createInterface } from 'readline';
 
 const serialPorts = {};
 
@@ -9,11 +10,15 @@ export const openPort = (path, portConfig, onOpen = null, onData = null) => {
 	}
 
 	if (onOpen) {
-		port.on('open', onOpen);
+		serialPorts[path].on('open', onOpen);
 	}
 
 	if (onData) {
-		port.on('data', onData);
+		const lineReader = createInterface({
+			input: serialPorts[path],
+		});
+
+		lineReader.on('line', onData);
 	}
 
 	return serialPorts[path];
@@ -22,7 +27,7 @@ export const openPort = (path, portConfig, onOpen = null, onData = null) => {
 export const writeToPort = (path, data, onError = null, mode = 'ascii') => {
 	if (serialPorts[path]) {
 		const dataBuffer = new Buffer(data, mode);
-		console.log(buf.toString('hex'));
+		console.log(`Data sent: ${dataBuffer}`);
 		serialPorts[path].write(dataBuffer, error => {
 			if (error && onError) {
 				onError(error);
@@ -31,7 +36,7 @@ export const writeToPort = (path, data, onError = null, mode = 'ascii') => {
 	} else {
 		if (onError) {
 			onError({
-				message: 'There is no open serial port with this path. Did you opened it?';
+				message: 'There is no open serial port with this path. Did you opened it?',
 			});
 		}
 	}

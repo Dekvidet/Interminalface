@@ -32,7 +32,12 @@ class ControlPanel extends React.Component {
 									key={button.id}
 									mapSelector={button.id}
 									selectorClass={button.selectorClass}
-									onButtonClick={() => this.props.writeToSerial(button.payload) }
+									onButtonClick={() => (
+										this.props.writeToSerial(
+											this.props.serialConfig.path,
+											button.payload
+										)
+									) }
 								>{button.label}</ControlButton>
 							)}
 						</div>
@@ -42,7 +47,12 @@ class ControlPanel extends React.Component {
 								mapSelector={buttonGroup.id}
 								selectorClass={buttonGroup.selectorClass}
 								data={buttonGroup}
-								onButtonClick={this.props.writeToSerial}
+								onButtonClick={payload => (
+									this.props.writeToSerial(
+										this.props.serialConfig.path,
+										payload
+									)
+								)}
 							/>
 						)}
 					</div>
