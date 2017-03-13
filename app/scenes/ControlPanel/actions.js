@@ -1,31 +1,24 @@
 import fileSystem from 'fs';
 import { openPort, writeToPort } from 'services/serialPort';
+import { writeConsoleLine } from './scenes/ConsoleDisplay/actions';
 
-export const LOAD = 'control-panel/load';
-export const RED_SERIAL_DATA = 'control-panel/red-serial-data';
+export const LOAD_SETTINGS = 'control-panel/load';
 
-const loadSettings = (data) => ({
-	type: LOAD,
+const loadSettings = data => ({
+	type: LOAD_SETTINGS,
 	data,
 });
 
-const readFromSerial = (data) => {
-	console.log(data.toString())
-	return dispatch => ({
-		type: RED_SERIAL_DATA,
-		data,
-	})
-};
-
 const openSerialPort = (path, portConfig) => (
 	dispatch => {
-		openPort(path, portConfig, null, readFromSerial);
+		openPort(path, portConfig, null, writeConsoleLine);
 	}
 );
 
-export const writeToSerial = (path, data) => (
+export const writeToSerial = (path, line) => (
 	dispatch => {
-		writeToPort(path, data);
+		dispatch(writeConsoleLine(line));
+		writeToPort(path, line);
 	}
 );
 
@@ -49,8 +42,3 @@ export const fetchSettings = () => (
 		});
 	}
 );
-
-export default {
-	fetchSettings,
-	writeToSerial,
-}

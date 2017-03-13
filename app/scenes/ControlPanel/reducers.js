@@ -1,19 +1,23 @@
-import { LOAD, RED_SERIAL_DATA } from './actions';
+import { combineReducers } from 'redux';
+import { LOAD_SETTINGS } from './actions';
+import consoleLines from './scenes/ConsoleDisplay/reducers';
 
 const initialState = {
 	buttons: [],
 };
 
-const controlPanel = (state = initialState, action) => {
+const settings = (state = initialState, action) => {
 	switch (action.type) {
-		case LOAD:
+		case LOAD_SETTINGS:
 			return action.data;
-		case RED_SERIAL_DATA:
-			console.log(action.data)
-			//return action.data;
 		default:
 			return state
 	}
 }
+
+const controlPanel = combineReducers({
+	settings,
+	consoleLines,
+});
 
 export default controlPanel;

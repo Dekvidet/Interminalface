@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { fetchSettings, writeToSerial } from './actions';
 import ControlButton from './components/ControlButton';
 import ControlButtonGroup from './components/ControlButtonGroup';
+import ConsoleDisplay from './scenes/ConsoleDisplay';
 import style from './style.css';
 
 const mapStateToProps = store => store.controlPanel;
@@ -27,21 +28,21 @@ class ControlPanel extends React.Component {
 					<h1>MatrixControl</h1>
 					<div className={style.buttonContainer}>
 						<div className="">
-							{this.props.buttons.map(button =>
+							{this.props.settings.buttons.map(button =>
 								<ControlButton
 									key={button.id}
 									mapSelector={button.id}
 									selectorClass={button.selectorClass}
 									onButtonClick={() => (
 										this.props.writeToSerial(
-											this.props.serialConfig.path,
+											this.props.settings.serialConfig.path,
 											button.payload
 										)
 									) }
 								>{button.label}</ControlButton>
 							)}
 						</div>
-						{this.props.buttonGroups && this.props.buttonGroups.map(buttonGroup =>
+						{this.props.settings.buttonGroups && this.props.settings.buttonGroups.map(buttonGroup =>
 							<ControlButtonGroup
 								key={buttonGroup.id}
 								mapSelector={buttonGroup.id}
@@ -49,7 +50,7 @@ class ControlPanel extends React.Component {
 								data={buttonGroup}
 								onButtonClick={payload => (
 									this.props.writeToSerial(
-										this.props.serialConfig.path,
+										this.props.settings.serialConfig.path,
 										payload
 									)
 								)}
@@ -57,11 +58,11 @@ class ControlPanel extends React.Component {
 						)}
 					</div>
 					<div className={style.consoleContainer}>
-					Console Output
+						<ConsoleDisplay lines={this.props.consoleLines} />
 					</div>
 				</div>
 				<div className={style.mapContainer}>
-					<object id="map" data="data/map.svg" type="image/svg+xml" style={{width: '100%', height: '100%'}}></object>
+					<object id="map" data="data/illustration.svg" type="image/svg+xml" style={{width: '100%', height: '100%'}}></object>
 				</div>
 			</div>
 		);

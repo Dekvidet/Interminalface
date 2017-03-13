@@ -27,9 +27,9 @@
 					"payload": "aud_beta\r\n"
 				},
 				{
-					"id": "pc_gamma",
-					"label": "PC GAMMA",
-					"payload": "aud_gamma\r\n"
+					"id": "off",
+					"label": "Turn Off",
+					"payload": "aud_off\r\n"
 				}
 			]
 		},
@@ -48,9 +48,9 @@
 					"payload": "tel_beta\r\n"
 				},
 				{
-					"id": "pc_gamma",
-					"label": "PC GAMMA",
-					"payload": "tel_gamma\r\n"
+					"id": "off",
+					"label": "Turn Off",
+					"payload": "tel_off\r\n"
 				}
 			]
 		}

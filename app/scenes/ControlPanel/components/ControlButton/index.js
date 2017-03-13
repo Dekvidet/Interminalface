@@ -2,7 +2,7 @@ import React from 'react';
 import { addHighlightClass, removeHighlightClass } from '../../services/mapHighlighter';
 import style from './style.css';
 
-const ControlButton = ({onButtonClick, mapSelector, selectorClass, children, }) => (
+const ControlButton = ({onButtonClick, mapSelector, selectorClass, children }) => (
 	<button
 		onClick={onButtonClick}
 		onMouseEnter={() => addHighlightClass(mapSelector, selectorClass)}
