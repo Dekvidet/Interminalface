@@ -2,8 +2,8 @@ import React from 'react';
 import style from './style.css';
 
 const ConsoleDisplay = ({lines}) => (
-	<div>
-		{lines.map(line => <p>{line}</p>)}
+	<div className={style.consoleDisplay}>
+		{lines.map(line => <p className={`${style.line} ${line.type}`}>{line.data}</p>)}
 	</div>
 );
 

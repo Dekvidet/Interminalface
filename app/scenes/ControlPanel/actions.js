@@ -11,14 +11,16 @@ const loadSettings = data => ({
 
 const openSerialPort = (path, portConfig) => (
 	dispatch => {
-		openPort(path, portConfig, null, writeConsoleLine);
+		openPort(path, portConfig, null, line => {
+			dispatch(writeConsoleLine(line));
+		});
 	}
 );
 
 export const writeToSerial = (path, line) => (
 	dispatch => {
 		dispatch(writeConsoleLine(line));
-		writeToPort(path, line);
+		writeToPort(path, line.data);
 	}
 );
 

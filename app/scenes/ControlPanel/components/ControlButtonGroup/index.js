@@ -1,7 +1,6 @@
 import React from 'react';
 import ControlButton from '../ControlButton';
 import { addHighlightClass, removeHighlightClass } from '../../services/mapHighlighter';
-import style from './style.css';
 
 const ControlButtonGroup = ({data, onButtonClick, mapSelector, selectorClass}) => (
 	<div

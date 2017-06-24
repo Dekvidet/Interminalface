@@ -25,7 +25,6 @@ class ControlPanel extends React.Component {
 		return (
 			<div className={style.flexContainer}>
 				<div className={style.controlContainer}>
-					<h1>MatrixControl</h1>
 					<div className={style.buttonContainer}>
 						<div className="">
 							{this.props.settings.buttons.map(button =>
@@ -36,7 +35,10 @@ class ControlPanel extends React.Component {
 									onButtonClick={() => (
 										this.props.writeToSerial(
 											this.props.settings.serialConfig.path,
-											button.payload
+											{
+												type: 'console-input',
+												data: button.payload,
+											}
 										)
 									) }
 								>{button.label}</ControlButton>
@@ -51,7 +53,10 @@ class ControlPanel extends React.Component {
 								onButtonClick={payload => (
 									this.props.writeToSerial(
 										this.props.settings.serialConfig.path,
-										payload
+										{
+											type: 'console-input',
+											data: payload,
+										}
 									)
 								)}
 							/>

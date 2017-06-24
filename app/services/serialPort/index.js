@@ -18,7 +18,12 @@ export const openPort = (path, portConfig, onOpen = null, onData = null) => {
 			input: serialPorts[path],
 		});
 
-		lineReader.on('line', onData);
+		lineReader.on('line', message => {
+			onData({
+				type: 'console-output',
+				data: message,
+			});
+		});
 	}
 
 	return serialPorts[path];

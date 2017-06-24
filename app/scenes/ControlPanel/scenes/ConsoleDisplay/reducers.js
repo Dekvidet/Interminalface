@@ -3,7 +3,9 @@ import { WRITE_CONSOLE_LINE } from './actions';
 const consoleLines = (state = [], action) => {
 	switch (action.type) {
 		case WRITE_CONSOLE_LINE:
-			return [...state, action.line];
+			let nextState = state.map(a => Object.assign({}, a));
+			nextState.push(action.line);
+			return nextState;
 		default:
 			return state
 	}
